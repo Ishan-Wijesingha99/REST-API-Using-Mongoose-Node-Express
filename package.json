@@ -1,0 +1,27 @@
+{
+  "name": "rest-api-using-mongoose-node-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "listen": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ishan-Wijesingha99/REST-API-Using-Mongoose-Node-Express.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ishan-Wijesingha99/REST-API-Using-Mongoose-Node-Express/issues"
+  },
+  "homepage": "https://github.com/Ishan-Wijesingha99/REST-API-Using-Mongoose-Node-Express#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.6.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.2",
+    "nodemon": "^2.0.19"
+  }
+}
