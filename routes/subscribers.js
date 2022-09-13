@@ -67,13 +67,33 @@ router.post('/', async (req, res) => {
 })
 
 // Updating one sub
-router.patch('/:id', getSubscriber, (req, res) => {
-    
+router.patch('/:id', getSubscriber, async (req, res) => {
+    // if the user actually passes a name to us, THEN update the subscriber's name property
+    if(req.body.name != null) {
+        res.subscriber.name = req.body.name
+    }
+    // if the user actually passes a subscribedTo to us, THEN update the subscriber's subscribedTo property
+    if(req.body.subscribedTo != null) {
+        res.subscriber.subscribedTo = req.body.subscribedTo
+    }
+
+    try {
+        const updatedSubscriber = await res.subscriber.save()
+        res.status(200).json(updatedSubscriber)
+    } catch (error) {
+        res.status(400).json({ message: error.message })
+    }
 })
 
 // Deleting one sub
-router.delete('/:id', getSubscriber, (req, res) => {
-    
+router.delete('/:id', getSubscriber, async (req, res) => {
+    try {
+        await res.subscriber.remove()
+
+        res.status(200).json({ message: 'Deleted subscriber' })
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
 })
 
 
